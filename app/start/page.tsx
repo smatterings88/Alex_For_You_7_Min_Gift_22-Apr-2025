@@ -130,7 +130,6 @@ export default function Start() {
     try {
       let email = signInData.identifier;
 
-      // If the identifier is not an email, try to find the user by username
       if (!email.includes('@')) {
         try {
           const usernameRef = doc(db, 'usernames', signInData.identifier.toLowerCase());
@@ -195,7 +194,6 @@ export default function Start() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Background Image */}
       <Image
         src="https://storage.googleapis.com/msgsndr/JBLl8rdfV29DRcGjQ7Rl/media/6807211a437290ad5ac27b10.png"
         alt="Background"
@@ -205,14 +203,11 @@ export default function Start() {
         className="object-cover fixed inset-0"
       />
       
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Content */}
       <main className="relative min-h-screen flex items-center">
         <div className="w-full max-w-4xl mx-auto px-4 py-24 sm:py-32">
           <div className="space-y-8">
-            {/* Header */}
             <div className="text-center">
               <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4">
                 {isSignInView ? 'Welcome Back' : 'Personalize Your Session'}
@@ -222,10 +217,8 @@ export default function Start() {
               </p>
             </div>
 
-            {/* Main Content Card */}
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 sm:p-10 shadow-2xl">
               {isSignInView ? (
-                // Sign In Form
                 <form onSubmit={handleSignIn} className="space-y-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Username or Email</label>
@@ -258,7 +251,7 @@ export default function Start() {
                   </button>
 
                   <p className="text-center text-gray-600">
-                    Don't have an account?{' '}
+                    Don&apos;t have an account?{' '}
                     <button
                       type="button"
                       onClick={() => setIsSignInView(false)}
@@ -269,7 +262,6 @@ export default function Start() {
                   </p>
                 </form>
               ) : (
-                // Sign Up Form
                 <form onSubmit={handleSignUp} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
